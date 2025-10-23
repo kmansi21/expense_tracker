@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Status</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      color: #333;
+    }
+
+    .status-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      padding: 2.5rem 3rem;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .status-card h2 {
+      color: #11998e;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .status-message {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .btn-dashboard {
+      background: #11998e;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-dashboard:hover {
+      background: #0e7f75;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(-20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="status-card">
+    <h2>Expense Status</h2>
+    <p class="status-message">{{ status }}</p>
+    <a href="/dashboard/" class="btn-dashboard">Back to Dashboard</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f7fdf9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+.brand-name {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff !important;
+   z-index: 1; 
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.1); /* keeps it readable */
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+
+    /* Hero with Login */
+    .hero {
+      background: url('/static/tracker.jpg') no-repeat center center/cover;
+      color: #fff;
+      padding: 100px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.45);
+      z-index:0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-text {
+      flex: 1 1 350px;
+      text-align: left;
+      color: #fff;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    /* Login Card */
+    .login-card {
+      flex: 1 1 350px;
+      background: #fff;
+      color: #333;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .login-card h3 {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      color: #11998e;
+    }
+    .form-control:focus {
+      border-color: #11998e;
+      box-shadow: 0 0 0 0.2rem rgba(17,153,142,.25);
+    }
+    .btn-login {
+      background: #11998e;
+      color: #fff;
+      border: none;
+      font-weight: 500;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn-login:hover {
+      background: #0e7f75;
+    }
+  .extra-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .extra-text a {
+      color: #11998e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .extra-text a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #11998e;
+      color: #fff;
+      text-align: center;
+      padding: 0.7rem;
+      font-size: 0.95rem;
+      margin-top: 0.1rem;
+    }
+  </style>
+</head>
+<body>
+   <div class="brand-name">
+    Expense Tracker
+  </div>
+  <!-- Hero with Login -->
+  <section class="hero">
+  
+
+    <div class="hero-content container">
+      <div class="hero-text">
+        <h1>Manage Your Money, Stress-Free</h1>
+        <p>Track expenses, control budgets, and take charge of your financial life with ease.</p>
+      </div>
+
+      <!-- Login Form -->
+      <div class="login-card">
+        <h3>Login</h3>
+         {% if error %}
+<p style="
+  background: #ffe6e6;
+  color: #d9534f;
+  border: 1px solid #f5c2c7;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;">
+  {{ error }}
+</p>
+{% endif %}
+        <form method="post" action="/login/">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">User Id</label>
+            <input type="text" name="userid" class="form-control" placeholder="Enter your Email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn-login w-100">Login</button>
+        </form>
+ <p class="extra-text">
+      Don’t have an account? <a href="/register/">Register</a>
+    </p>      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Expense Tracker | All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
